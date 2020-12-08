@@ -1,3 +1,5 @@
+// Fazendo converções numéricas
+
 Number("10");
 Number("9.9");
 Number("0xFF");
