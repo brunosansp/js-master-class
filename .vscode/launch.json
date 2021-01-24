@@ -11,7 +11,8 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}/regexp/example.js"
+            // "program": "${workspaceFolder}/regexp/example.js"
+            "program": "${workspaceFolder}/exercises/main.js"
         }
     ]
 }
