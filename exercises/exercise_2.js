@@ -1,11 +1,23 @@
 const statement = "create table author (id number, name string, age number, city string, state string, country string)";
-const regExp = /(\w+) (\((.+)\)+)/;
+const regExp = /(\w+) \((.+)\)/;
 const parsedStatement = statement.match(regExp);
-console.log(parsedStatement);
+const tableName = parsedStatement[1];
+let columns = parsedStatement[2];
+columns = columns.split(",");
 
-let database = {
-    name: "tables"
+const database = {
+    tables: {
+        [tableName]: {
+            columns: {},
+            data:[]
+        }
+    }
 };
-console.log(database)
+for(let column of columns) {
+    column = column.trim().split(" ");
+    const name = column[0];
+    const type = column[1];
+    database.tables[tableName].columns[name] = type;
+}
 
-parsedStatement[1];
+console.log(JSON.stringify(database, undefined, " "));
