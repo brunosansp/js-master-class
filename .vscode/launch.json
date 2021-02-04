@@ -12,7 +12,7 @@
                 "<node_internals>/**"
             ],
             // "program": "${workspaceFolder}/regexp/example.js"
-            "program": "${workspaceFolder}/exercises/remake1_exercise_2.js"
+            "program": "${workspaceFolder}/exercises/exercise_2_remake2.js"
         }
     ]
 }
