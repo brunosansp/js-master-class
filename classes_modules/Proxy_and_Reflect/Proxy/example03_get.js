@@ -1,0 +1,44 @@
+/**
+ * O método get é invocado quando uma propriedade é acessada.
+ */
+
+function createArray() {
+    return new Proxy({}, {
+        set(target, key, value) {
+            target.length = target.length || 0;
+            target.length++;
+            target[key] = value;
+        },
+        deleteProperty(target, key) {
+            if (key in target) {
+                target.length--;
+                delete target[key];
+            }
+        },
+        get(target, key) {
+            if (typeof key === "string" && key.match(/\d+/)) {
+                if (!(key in target)) {
+                    throw `Property ${key} not found.`;
+                }
+            }
+            return target[key];
+        }
+    });
+}
+const languages = new createArray();
+languages[0] = "Python";
+languages[1] = "Ruby";
+languages[2] = "JavaScript";
+console.log(languages);
+console.log(languages.length);
+
+// Teste após implementação do deleteProperty
+delete languages[1];
+delete languages[2];
+delete languages[3];
+console.log(languages);
+console.log(languages.length);
+
+// Teste após implementação do get
+console.log(languages[0]);
+console.log(languages[3]);
