@@ -29,5 +29,3 @@ delete languages[2];
 delete languages[3];
 console.log(languages);
 console.log(languages.length);
-
-// CONTINUAR AOS 6min57seg => delete property
